@@ -1,0 +1,36 @@
+
+<!--You already have an amazing Contact page, where we would like to add a contact form.
+In this contact form would be two fields.
+1) One field for email address and one field for text message. And there would be a “Send message” button. (done)
+2) This button should be active only if email address field not empty and valid and there is some message in the text box.
+After clicking on “Send message” button should appear an Alert with the email address and the message. When you close the alert message, the form should
+be cleared and a message should appear in the page in green box, this message could be something about
+"we got your message and get in touch soon".-->
+<div class="jumbotron text-center">
+    <h1>Contact Us</h1>
+
+    <br/><br/>
+
+    <div class="form-horizontal form-group form-group-lg row">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+          {{input type="email" value=emailAddress class="form-control" placeholder="Please type your e-mail address." autofocus="autofocus"}}
+
+        </div>
+
+        <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-1 col-md-5 col-md-offset-2">
+          {{textarea value=message class="form-control" placeholder="Your message. (At least 5 characters.)" rows="7"}}
+        </div>
+
+
+        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-4 col-md-3">
+            <button class="btn btn-primary btn-lg btn-block" disabled={{isDisabled}} {{action 'sendMessage'}}>Send Message</button>
+        </div>
+
+    </div>
+
+    {{#if responseMessage}}
+        <div class="alert alert-success">{{responseMessage}}</div>
+    {{/if}}
+
+    <br/><br/>
+</div>
